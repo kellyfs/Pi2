@@ -1,125 +1,166 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package jogo_pi;
-
-import java.util.Random;
-import java.util.Scanner;
-
-/**
- *
- * @author kelly.fsantos8
- */
-public class JogoDaVelha {
-
-    public static int jogadaMaquina(String posicao) {
+public static String[][] jogodavelha = new String[3][3];
+  
+ public static boolean jogadaMaquina() {
+     
+     //GERAR COMANDOS PARA TESTAR SE A POSIÇÃO DO RANDOM É VÁLIDA, SE SIM, A POSIÇÃO SERÁ ESCOLHIDA!
+     
         Random jogador2 = new Random();
-        for (int jg = 1; jg <= 3; jg++) {
-            System.out.println(jogador2.nextInt(9));
-        }
-        switch (posicao) {
-            case "1":
-                jogodavelha[0][0] = "x";
+        boolean validacao = false;
+          for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (jogodavelha[i][j] == null) {
+                        jogodavelha[i][j] = "-";
+                    }
+
+
+                }
+
+            }
+            
+        int sorteio = jogador2.nextInt(8)+1;
+           
+            switch (sorteio) {
+            case 1:
+                if (jogodavelha[0][0].equals("-")){
+                jogodavelha[0][0] = "o";
+                validacao = true;
+                } else {
+                    validacao = false;
+                }
                 break;
-            case "2":
-                jogodavelha[0][1] = "x";
+            case 2:
+                 if (jogodavelha[0][1].equals("-")){
+                jogodavelha[0][1] = "o";
+                validacao = true;
+                }
                 break;
-            case "3":
-                jogodavelha[0][2] = "x";
+            case 3:
+                 if (jogodavelha[0][2].equals("-")){
+                jogodavelha[0][2] = "o";
+                validacao = true;
+                }
                 break;
-            case "4":
-                jogodavelha[1][0] = "x";
+            case 4:
+                 if (jogodavelha[1][0].equals("-")){
+                jogodavelha[1][0] = "o";
+                validacao = true;
+                }
                 break;
-            case "5":
-                jogodavelha[1][1] = "x";
+            case 5:
+                 if (jogodavelha[1][1].equals("-")){
+                jogodavelha[1][1] = "o";
+                validacao = true;
+                }
                 break;
-            case "6":
-                jogodavelha[1][2] = "x";
+            case 6:
+                 if (jogodavelha[1][2].equals("-")){
+                jogodavelha[1][2] = "o";
+                validacao = true;
+                }
                 break;
-            case "7":
-                jogodavelha[2][0] = "x";
+            case 7:
+                 if (jogodavelha[2][0].equals("-")){
+                jogodavelha[2][0] = "o";
+                validacao = true;
+                }
                 break;
-            case "8":
-                jogodavelha[2][1] = "x";
+            case 8:
+                 if (jogodavelha[2][1].equals("-")){
+                jogodavelha[2][1] = "o";
+                validacao = true;
+                }
                 break;
-            case "9":
-                jogodavelha[2][2] = "x";
+            case 9:
+                 if (jogodavelha[2][2].equals("-")){
+                jogodavelha[2][2] = "o";
+                validacao = true;
+                }
                 break;
 
         }
+       return true;
     }
 
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-        String[][] jogodavelha = new String[3][3];
-        String playerO = "O";
-        String playerX = "X";
-        //RANDOM PARA A JOGADA DA MÁQUINA
-        Random jogador2 = new Random();
-        boolean trigger = true;
-        
-        for (int jg = 1; jg <= 3; jg++) {
-            Random randomizer = new Random();
-
-            int linha2 = randomizer.nextInt(3);
-            int coluna2 = randomizer.nextInt(3);
-            for (int i = 0; i < 3; i++) {
+        boolean validacao = true;
+          for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
-
-                    if (!jogodavelha[i][j].equals(playerX) && trigger==true) {
-                        jogodavelha[linha2][coluna2] = playerO;
-                        trigger =false;
-                    } 
-                }
-
-                if(i ==2 ){
-                    trigger = true;
+                    if (jogodavelha[i][j] == null) {
+                        jogodavelha[i][j] = "-";
+                    }
                 }
 
             }
-        }
-
+            
         //LAÇO PARA PEDIR A POSIÇÃO PARA O USUÁRIO        
         System.out.println("Você é o X!");
-        for (int p = 1; p <= 3; p++) {
-            String s = playerO;
+        int p=0;
+        
+        while (p < 9) {
             System.out.println("Informe a posição desejada de 1 a 9: ");
             String posicao = leitor.next();
 
             //DECISÃO DA IMPRESSÃO CONFORME A POSIÇÃO
             switch (posicao) {
                 case "1":
-                    jogodavelha[0][0] = "x";
+                    if (jogodavelha[0][0].equals("-")){
+                jogodavelha[0][0] = "x";
+                validacao = true;
+                } 
                     break;
                 case "2":
-                    jogodavelha[0][1] = "x";
+                     if (jogodavelha[0][1].equals("-")){
+                jogodavelha[0][1] = "x";
+                validacao = true;
+                }
                     break;
                 case "3":
-                    jogodavelha[0][2] = "x";
+                     if (jogodavelha[0][2].equals("-")){
+                jogodavelha[0][2] = "x";
+                validacao = true;
+                }
                     break;
                 case "4":
-                    jogodavelha[1][0] = "x";
+                     if (jogodavelha[1][0].equals("-")){
+                jogodavelha[1][0] = "x";
+                validacao = true;
+                }
                     break;
                 case "5":
-                    jogodavelha[1][1] = "x";
+                     if (jogodavelha[1][1].equals("-")){
+                jogodavelha[1][1] = "x";
+                validacao = true;
+                }
                     break;
                 case "6":
-                    jogodavelha[1][2] = "x";
+                     if (jogodavelha[1][2].equals("-")){
+                jogodavelha[1][2] = "x";
+                validacao = true;
+                } 
                     break;
                 case "7":
-                    jogodavelha[2][0] = "x";
+                     if (jogodavelha[2][0].equals("-")){
+                jogodavelha[2][0] = "x";
+                validacao = true;
+                } 
                     break;
                 case "8":
-                    jogodavelha[2][1] = "x";
+                     if (jogodavelha[2][1].equals("-")){
+                jogodavelha[2][1] = "x";
+                validacao = true;
+                } 
                     break;
                 case "9":
-                    jogodavelha[2][2] = "x";
+                     if (jogodavelha[2][2].equals("-")){
+                jogodavelha[2][2] = "x";
+                validacao = true;
+                } 
                     break;
+                    
 
             }
-
+              p = p+1; 
             //COMANDOS DO TABULEIRO
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
@@ -133,7 +174,11 @@ public class JogoDaVelha {
                 System.out.println("");
 
             }
+            
+            jogadaMaquina();
+            validacao = false;
+            
+           
 
         }
     }
-}

@@ -83,15 +83,25 @@ public static String[][] jogodavelha = new String[3][3];
 
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-        boolean validacao = true;
+        boolean validacao = false;
+       
+        
           for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     if (jogodavelha[i][j] == null) {
                         jogodavelha[i][j] = "-";
                     }
                 }
-
+        
             }
+           if ( jogodavelha[0][0] == "x" && jogodavelha[0][1] == "x" && jogodavelha[0][2] == "x" && jogodavelha[1][0] == "x" && jogodavelha[1][1] == "x" && jogodavelha[1][2] == "x" && jogodavelha[2][0] == "x" && jogodavelha[2][1] == "x" && jogodavelha[2][2] == "x"){
+          validacao = true;
+              System.out.println("Você ganhou o jogo!");
+          }
+         if ( jogodavelha[0][0] == "o" && jogodavelha[0][1] == "o" && jogodavelha[0][2] == "o" && jogodavelha[1][0] == "o" && jogodavelha[1][1] == "o" && jogodavelha[1][2] == "o" && jogodavelha[2][0] == "o" && jogodavelha[2][1] == "o" && jogodavelha[2][2] == "o"){
+          validacao = true;
+              System.out.println("Você ganhou o jogo!");
+          }
             
         //LAÇO PARA PEDIR A POSIÇÃO PARA O USUÁRIO        
         System.out.println("Você é o X!");
